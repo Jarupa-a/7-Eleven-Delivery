@@ -79,8 +79,8 @@ button{font-family:inherit;border:0;background:none;cursor:pointer;color:inherit
 .hb{display:flex;align-items:center;gap:10px;width:100%;margin-top:10px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);border-radius:12px;padding:7px 10px;color:#fff;text-align:left}
 .hb-ic{width:30px;height:30px;border-radius:8px;background:#fff;display:grid;place-items:center;font-size:16px;flex:none}
 .hb-tx{flex:1;min-width:0;line-height:1.2}
-.hb-tx small{display:block;font-size:11px;opacity:.85}
-.hb-tx b{font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+.hb-tx small{display:block;font-size:11px;opacity:.85;white-space:nowrap}
+.hb-tx b{font-size:15px;display:block;line-height:1.3}
 .hb-meta{font-size:11px;opacity:.9;white-space:nowrap}
 .hb-chg{background:#fff;color:var(--g-d);font-size:12px;font-weight:600;padding:4px 10px;border-radius:14px;white-space:nowrap}
 .hb.flash{animation:flash 1s ease 2}
@@ -203,7 +203,44 @@ button{font-family:inherit;border:0;background:none;cursor:pointer;color:inherit
 .tapagain{margin-top:8px;font-size:12px;color:var(--g-d);background:var(--g-l);border-radius:8px;padding:4px 8px;display:inline-block}
 .selmark{width:24px;height:24px;border-radius:50%;background:var(--g);color:#fff;display:grid;place-items:center;font-size:13px}
 .hb{cursor:default}
-.hb-lock{background:rgba(255,255,255,.22);color:#fff;font-size:11px;font-weight:600;padding:3px 9px;border-radius:12px;white-space:nowrap}
+.hb-call{display:flex;align-items:center;gap:4px;height:30px;padding:0 11px 0 9px;border-radius:15px;background:#fff;color:var(--g-d);font-size:12px;font-weight:600;flex:none;box-shadow:0 2px 6px rgba(0,0,0,.12);cursor:pointer}
+.hb-call svg{flex:none}
+.hb-call:active{transform:scale(.95)}
+.cconfirm{position:absolute;inset:0;z-index:56;background:rgba(10,25,18,.45);display:flex;align-items:center;justify-content:center;padding:28px;opacity:0;pointer-events:none;transition:opacity .2s}
+.cconfirm.show{opacity:1;pointer-events:auto}
+.cc-box{background:#fff;border-radius:20px;padding:22px 20px 18px;width:100%;text-align:center;transform:scale(.94);transition:transform .2s}
+.cconfirm.show .cc-box{transform:none}
+.cc-ic{width:56px;height:56px;border-radius:50%;background:var(--g-l);color:var(--g);display:grid;place-items:center;margin:0 auto 12px}
+.cc-t{font-weight:600;font-size:17px}
+.cc-n{font-size:15px;margin-top:6px;color:var(--g-d);font-weight:600}
+.cc-num{font-size:14px;color:var(--mut)}
+.cc-d{font-size:12px;color:var(--mut);margin:10px 0 16px;line-height:1.5}
+.cc-btns{display:flex;gap:10px}
+.cc-btns button{flex:1;height:46px;border-radius:12px;font-weight:600;font-size:15px;display:flex;align-items:center;justify-content:center;gap:6px}
+.cc-no{background:var(--bg);color:var(--ink)}
+.cc-yes{background:var(--g);color:#fff}
+.callscr{position:absolute;inset:0;z-index:55;background:#fff;color:var(--ink);display:flex;flex-direction:column;align-items:center;padding:calc(var(--sb) + 40px) 28px 50px;opacity:0;pointer-events:none;transition:opacity .25s}
+.callscr.show{opacity:1;pointer-events:auto}
+.cs-top{text-align:center;flex:1;display:flex;flex-direction:column;align-items:center}
+.cs-sub{font-size:13px;color:var(--mut)}
+.cs-av{position:relative;width:112px;height:112px;border-radius:50%;background:var(--g-l);display:grid;place-items:center;margin:26px 0 18px;box-shadow:inset 0 0 0 3px #fff,0 0 0 2px var(--g-l)}
+.cs-av svg{position:relative;z-index:2}
+.cs-av i{position:absolute;inset:0;border-radius:50%;border:2px solid rgba(11,154,72,.45);animation:ring 2s ease-out infinite}
+.cs-av i.d2{animation-delay:1s}
+@keyframes ring{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.7);opacity:0}}
+.callscr.live .cs-av i{display:none}
+.cs-name{font-size:24px;font-weight:600}
+.cs-num{font-size:15px;color:var(--mut);margin-top:4px;letter-spacing:.5px}
+.cs-status{font-size:14px;margin-top:14px;color:var(--g-d);background:var(--g-l);padding:4px 14px;border-radius:14px;font-weight:500}
+.cs-tip{font-size:12px;color:var(--mut);margin-top:22px;max-width:260px;line-height:1.5}
+.cs-grid{display:flex;gap:26px;margin-bottom:34px}
+.cs-grid button{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:12px;color:var(--mut)}
+.cs-grid button span{width:62px;height:62px;border-radius:50%;background:var(--g-l);color:var(--g);display:grid;place-items:center;transition:background .15s,color .15s}
+.cs-grid button.on span{background:var(--g);color:#fff}
+.cs-end{width:70px;height:70px;border-radius:50%;background:#e53935;color:#fff;display:grid;place-items:center;box-shadow:0 6px 18px rgba(229,57,53,.35)}
+.cs-end svg{transform:rotate(135deg)}
+.cs-endlbl{font-size:12px;margin-top:8px;color:var(--mut)}
+.hb-lock{font-style:normal;background:rgba(255,255,255,.25);color:#fff;font-size:10px;font-weight:600;padding:1px 7px;border-radius:9px;margin-left:4px;white-space:nowrap}
 .autotag{margin-left:auto;font-size:11px;color:var(--mut);background:#fff;border-radius:10px;padding:3px 8px;white-space:nowrap}
 .want-box{display:flex;gap:12px;align-items:center;background:#fff;border-radius:14px;margin:12px 16px 0;padding:10px 12px;border:1.5px dashed var(--g)}
 .want-box .pimg{width:52px;border-radius:10px;flex:none}
@@ -312,9 +349,8 @@ button{font-family:inherit;border:0;background:none;cursor:pointer;color:inherit
       </div>
       <div class="hb">
         <span class="hb-ic">🏪</span>
-        <span class="hb-tx"><small>จัดส่งจาก</small><b class="curBranchName"></b></span>
-        <span class="hb-meta curBranchShort"></span>
-        <span class="hb-lock" title="ระบบเลือกสาขาที่ใกล้ที่สุดให้อัตโนมัติ">ใกล้สุด</span>
+        <span class="hb-tx"><small>จัดส่งจาก</small><b class="curBranchName"></b><small class="curBranchShort"></small></span>
+        <button class="hb-call" onclick="askCall()" aria-label="โทรหาสาขา"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg><span>โทร</span></button>
       </div>
       <button class="search" onclick="go('search')">🔍 <span>ค้นหา เช่น "ไข่ตุ๋น"</span></button>
     </div>
@@ -355,7 +391,7 @@ button{font-family:inherit;border:0;background:none;cursor:pointer;color:inherit
       </div>
     </div>
     <div class="chips"><span class="on">ทั้งหมด</span><span>สินค้าแนะนำ</span><span>อาหารพร้อมทาน</span><span>อื่นๆ</span></div>
-    <div class="bar" style="margin-bottom:0"><span class="store" style="width:34px;height:34px;font-size:18px">🏪</span><div style="font-size:13px">จัดส่งจาก<br><b class="curBranchName"></b></div><span class="autotag">ระบบเลือกให้อัตโนมัติ</span></div>
+    <div class="bar" style="margin-bottom:0"><span class="store" style="width:34px;height:34px;font-size:18px">🏪</span><div style="font-size:13px">จัดส่งจาก<br><b class="curBranchName"></b></div><span class="autotag branchTag2"></span></div>
     <div class="scroll"><div id="simHead" class="simhead"></div><div class="grid" id="searchGrid"></div></div>
     <div class="foot"><button class="cartbar" onclick="go('cart')"><span>🛒 <span class="cartCount"></span></span><span>ดูตะกร้าสินค้า</span><span class="cartSub"></span></button></div>
   </section>
@@ -403,7 +439,7 @@ button{font-family:inherit;border:0;background:none;cursor:pointer;color:inherit
   <section class="screen" id="s-cart">
     <div class="top white"><div class="row"><button class="back" onclick="back()">‹</button><div class="title">ตะกร้าของฉัน</div></div></div>
     <div class="scroll">
-      <div class="bar"><span class="store">🏪</span><div style="font-size:13px">จัดส่งจากสาขา<br><b class="curBranchName"></b><div class="meta curBranchMeta"></div></div><span class="autotag">ระบบเลือกให้อัตโนมัติ</span></div>
+      <div class="bar"><span class="store">🏪</span><div style="font-size:13px">จัดส่งจากสาขา<br><b class="curBranchName"></b><div class="meta curBranchMeta"></div></div><span class="autotag branchTag2"></span></div>
       <div class="card" id="cartItems"></div>
       <div class="card sum" id="cartSum"></div>
     </div>
@@ -421,7 +457,7 @@ button{font-family:inherit;border:0;background:none;cursor:pointer;color:inherit
         <div class="row"><span class="store">🏪</span><div style="flex:1"><div class="meta">จัดส่งโดยสาขา</div><b class="curBranchName"></b><div class="meta curBranchMeta"></div></div></div>
         <div class="shipbox">
           <div class="shiphead">🛵 สินค้าจัดส่งทันที</div>
-          <div class="seg"><div class="opt" data-w="now" onclick="setWhen('now')"><span class="radio"></span>รับทันที</div><div class="opt" data-w="time" onclick="setWhen('time')"><span class="radio"></span>ระบุเวลา</div></div>
+          <div class="seg"><div class="opt" data-w="now" onclick="setWhen('now')"><span class="radio"></span>ส่งทันที</div><div class="opt" data-w="time" onclick="setWhen('time')"><span class="radio"></span>ระบุเวลา</div></div>
           <div id="slots"></div>
           <div id="coItems"></div>
         </div>
@@ -472,6 +508,32 @@ button{font-family:inherit;border:0;background:none;cursor:pointer;color:inherit
     <div class="hscroll" id="sheetRec"></div>
   </div>
 
+  <div class="cconfirm" id="cconfirm" onclick="if(event.target===this) closeAsk()">
+    <div class="cc-box">
+      <div class="cc-ic"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg></div>
+      <div class="cc-t">โทรหาสาขานี้ใช่ไหม?</div>
+      <div class="cc-n" id="ccName"></div>
+      <div class="cc-num" id="ccNum"></div>
+      <div class="cc-d">ใช้สอบถามสินค้าที่สาขาโดยตรง อาจมีค่าบริการโทรตามผู้ให้บริการเครือข่าย</div>
+      <div class="cc-btns"><button class="cc-no" onclick="closeAsk()">ยกเลิก</button><button class="cc-yes" onclick="closeAsk();callBranch()"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg> โทรเลย</button></div>
+    </div>
+  </div>
+  <div class="callscr" id="callscr">
+    <div class="cs-top"><div class="cs-sub">โทรหาสาขา</div>
+      <div class="cs-av"><svg viewBox="0 0 48 48" width="54" height="54"><rect x="6" y="20" width="36" height="22" rx="3" fill="#fff" stroke="#0b9a48" stroke-width="2.5"/><path d="M4 12h40l-3 9H7z" fill="#0b9a48"/><path d="M4 12l4-6h32l4 6" fill="#e9f7ef" stroke="#0b9a48" stroke-width="2.5" stroke-linejoin="round"/><path d="M13 21v1.5a3.5 3.5 0 0 0 7 0V21M20 21v1.5a3.5 3.5 0 0 0 7 0V21M27 21v1.5a3.5 3.5 0 0 0 7 0V21" stroke="#f58220" stroke-width="2" fill="none"/><rect x="11" y="28" width="10" height="14" rx="1.5" fill="#bfe6cf"/><rect x="25" y="28" width="12" height="8" rx="1.5" fill="#bfe6cf"/></svg><i></i><i class="d2"></i></div>
+      <div class="cs-name" id="csName"></div>
+      <div class="cs-num" id="csNum"></div>
+      <div class="cs-status" id="csStatus">กำลังโทร…</div>
+      <div class="cs-tip">สอบถามสินค้าที่สาขาได้โดยตรง สต็อกในระบบอาจไม่ตรงกับหน้าร้านเสมอไป</div>
+    </div>
+    <div class="cs-grid">
+      <button onclick="this.classList.toggle('on')"><span><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3a3 3 0 0 0-3 3v5a3 3 0 0 0 5.1 2.1M15 9.3V6a3 3 0 0 0-5.7-1.3"/><path d="M19 11a7 7 0 0 1-1.2 3.9M5 11a7 7 0 0 0 11 5.7M12 18v3"/><path d="M3 3l18 18"/></svg></span>ปิดเสียง</button>
+      <button onclick="toast('ปุ่มกด (ตัวอย่างต้นแบบ)')"><span><svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><circle cx="6" cy="5" r="1.7"/><circle cx="12" cy="5" r="1.7"/><circle cx="18" cy="5" r="1.7"/><circle cx="6" cy="10" r="1.7"/><circle cx="12" cy="10" r="1.7"/><circle cx="18" cy="10" r="1.7"/><circle cx="6" cy="15" r="1.7"/><circle cx="12" cy="15" r="1.7"/><circle cx="18" cy="15" r="1.7"/><circle cx="12" cy="20" r="1.7"/></svg></span>ปุ่มกด</button>
+      <button onclick="this.classList.toggle('on')"><span><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9z" fill="currentColor"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg></span>ลำโพง</button>
+    </div>
+    <button class="cs-end" onclick="endCall()" aria-label="วางสาย"><svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg></button>
+    <div class="cs-endlbl">วางสาย</div>
+  </div>
   <div class="toast" id="toast"></div>
 </div>
 </div>
@@ -573,7 +635,9 @@ function render(){
   $$('.addrTxt').forEach(e=>e.textContent=ADDRESS);
   $$('.curBranchName').forEach(e=>e.textContent=b.n);
   $$('.curBranchMeta').forEach(e=>e.textContent=`${b.d} กม. · จัดส่งได้ภายใน ${b.t} นาที`);
-  $$('.curBranchShort').forEach(e=>e.textContent=`${b.d} กม. · ${b.t} น.`);
+  $$('.curBranchShort').forEach(e=>e.textContent=`${b.d} กม. · ${b.t} นาที`);
+  $$('.branchTag').forEach(e=>e.textContent=S.picked?'สาขาที่คุณเลือก':'ใกล้คุณที่สุด');
+  $$('.branchTag2').forEach(e=>e.textContent=S.picked?'สาขาที่คุณเลือก':'ระบบเลือกให้อัตโนมัติ');
   const count = Object.values(S.cart).reduce((a,c)=>a+c,0);
   $$('.cartCount').forEach(e=>e.textContent=count);
   $$('.cartSub').forEach(e=>e.textContent=baht(subtotal()));
@@ -719,7 +783,7 @@ function renderDetail(){
   btn.textContent = b.id===S.branch? 'ใช้สาขานี้ต่อ' : (full?'ยืนยันเลือกสาขานี้':`เลือกสาขานี้ (ได้ ${ok.length}/${n.length} รายการ)`);
 }
 function confirmBranch(){
-  const b=S.pick; S.branch=b;
+  const b=S.pick; S.branch=b; S.picked = b!==B[0].id;
   let askHeat=null;
   if(S.want && has(b,S.want)){
     if(HEAT.has(S.want)) askHeat={id:S.want, h:S.wantKey&&hopt(S.wantKey)||'hot'};
@@ -794,7 +858,7 @@ function renderReview(){
   const n=Object.values(S.cart).reduce((a,c)=>a+c,0);
   $('#rvBody').innerHTML=`
    <div class="card"><div class="row"><div style="flex:1"><div class="meta">วิธีการชำระเงิน</div><b style="font-size:16px">${p.n}</b></div>${payLogo(p)}</div></div>
-   <div class="card"><div class="meta">จัดส่งโดย <b style="color:var(--ink)">${br(S.branch).n}</b> · ${S.when==='now'?'รับทันที ('+br(S.branch).t+' นาที)':'ระบุเวลา วันนี้ '+S.slot}</div>
+   <div class="card"><div class="meta">จัดส่งโดย <b style="color:var(--ink)">${br(S.branch).n}</b> · ${S.when==='now'?'ส่งทันที ('+br(S.branch).t+' นาที)':'ระบุเวลา วันนี้ '+S.slot}</div>
      <div class="meta" style="margin-top:4px">ไปที่ ${ADDRESS}${$('#noBag')&&$('#noBag').checked?' · ไม่รับถุง':''}</div>
      <div style="margin-top:8px">${Object.keys(S.cart).map(k=>{const q=pid(k),h=hopt(k);return `<div class="rv-row" style="font-size:13px"><span>${S.cart[k]}× ${P[q].n}${h?' ('+HL[h]+')':''}</span><span>${baht(P[q].pr*S.cart[k])}</span></div>`}).join('')}</div></div>
    <div class="card">
@@ -887,6 +951,19 @@ function renderTrack(){
   const r=$('#rider'); if(r){ r.style.transition='opacity .4s'; r.style.opacity = st>=2?1:0; }
 }
 function resetDemo(){ clearTimeout(S.trk); cancelAnimationFrame(S.raf); resetState(); S.hist=['home']; go('home'); }
+const BRANCH_TEL={b1:'02-000-1101',b2:'02-000-1102',b3:'02-000-1103'};
+function askCall(){ const b=br(S.branch); $('#ccName').textContent=b.n; $('#ccNum').textContent=BRANCH_TEL[b.id]||''; $('#cconfirm').classList.add('show'); }
+function closeAsk(){ $('#cconfirm').classList.remove('show'); }
+function callBranch(){
+  const b=br(S.branch), c=$('#callscr');
+  $('#csName').textContent=b.n; $('#csNum').textContent=BRANCH_TEL[b.id]||'';
+  $('#csStatus').textContent='กำลังโทร…'; c.classList.remove('live'); c.classList.add('show');
+  $('#statusbar').classList.add('dark');
+  clearTimeout(S.callT); clearInterval(S.callI);
+  S.callT=setTimeout(()=>{ c.classList.add('live'); let t=0; const f=()=>$('#csStatus').textContent=`เชื่อมต่อแล้ว · ${String(Math.floor(t/60)).padStart(2,'0')}:${String(t%60).padStart(2,'0')}`; f(); S.callI=setInterval(()=>{t++;f();},1000); },2500);
+}
+function endCall(){ clearTimeout(S.callT); clearInterval(S.callI); $('#csStatus').textContent='วางสายแล้ว';
+  setTimeout(()=>{ $('#callscr').classList.remove('show'); const id=document.querySelector('.screen.active').id.slice(2); $('#statusbar').classList.toggle('dark',!LIGHT_SB.includes(id)); },500); }
 function claimCoupon(){ const b=$('#claimBtn'); if(b.classList.contains('done')) return; b.classList.add('done'); b.textContent='✓ เก็บแล้ว'; S.coupon=true; toast('เก็บคูปองลด 40.- แล้ว ใช้ได้เมื่อช้อปครบ 300.-'); }
 (function(){ const c=$('#carousel'), d=$$('#dots i'); let i=0;
   c.addEventListener('scroll',()=>{ i=Math.round(c.scrollLeft/(c.clientWidth-22)); d.forEach((x,k)=>x.classList.toggle('on',k===i)); });
